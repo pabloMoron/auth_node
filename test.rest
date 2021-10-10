@@ -1,1 +1,25 @@
-GET http://localhost:4000/
+GET http://localhost:3000/
+
+###
+GET http://localhost:3000/users
+
+###
+POST http://localhost:3000/users
+
+###
+POST http://localhost:3000/users/password
+
+###
+GET http://localhost:3000/users/grant
+
+###
+GET http://localhost:3000/users/revoke
+
+###
+GET http://localhost:3000/users/enable
+
+###
+GET http://localhost:3000/users/disable
+
+###
+GET http://localhost:3000/users/current

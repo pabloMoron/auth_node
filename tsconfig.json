@@ -4,6 +4,7 @@
         "esModuleInterop": true,
         "strict": true,
         "target": "es6",
+        "allowSyntheticDefaultImports": true,
         "noImplicitAny": true,
         "moduleResolution": "node",
         "sourceMap": true,

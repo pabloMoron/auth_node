@@ -5,9 +5,10 @@ import * as cors from "cors";
 import * as express from "express";
 import * as helmet from "helmet";
 import * as morgan from "morgan";
-import * as passport from "passport";
+import passport from "passport";
 import * as path from "path";
 import { Config } from "./environment";
+import * as routes from './routes'
 
 export function initialize (appConfig: Config): express.Express {
     const app = express.default();
@@ -30,9 +31,9 @@ export function initialize (appConfig: Config): express.Express {
     app.use(compression.default());
 
     //Para la validacion de tokens
-    app.use(passport.initialize());
-
-
+    // app.use(passport.initialize());
+    // app.use(passport.session());
+        
     //Un poco de proteccion...
     app.use(helmet.xssFilter());
 
@@ -43,14 +44,13 @@ export function initialize (appConfig: Config): express.Express {
 
 
     //Configuramos la capeta de estaticos
-    app.use(express.static(path.join(__dirname, "../public"), {maxAge: 31557600000}))
-    app.get("/", (req, res, next)=>{ res.redirect("index.html"); });
+    app.use(express.static("public", {maxAge: 31557600000}))
     
     //Iniciar passport    
     // token.initPassport();
 
     // Iniciar las rutas
-    // routes.init(app);
+    routes.init(app);
 
     //Para el manejo de errores, para que los loguee en la consola
     //app.use(error.logErrors);
