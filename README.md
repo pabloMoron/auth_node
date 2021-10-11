@@ -36,4 +36,5 @@ passport: middleware que nos ayuda a validar tokens
 passport-jwt: estrategia especifica para passport (hay muchas, cerca de 500)
 
 mongoose: modelador de objetos mongodb para node
+
 eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin: linter para typescript
