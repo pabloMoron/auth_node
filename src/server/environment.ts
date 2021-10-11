@@ -1,6 +1,5 @@
 import * as dotenv from 'dotenv';
 let config: Config;
-let defaultSecret = "lxoixvHSl4DEswmF1WM1EA6v/Uk3ZG9ERInnRzpB6ny5yEMYIXgkGcNyN1zp4Vk3pFSSsAyo4w7KITUT8RxR79bWjWQqLmGcvrIzgcse2L00lGgdi97baK+2d1tzhyULCPSjgqF0Sr271eJjGfHs4LDkL8pBFvwAcr7olnm3bZ8ggmsmm26sdDuVb809gZMfo8CTWZPC/6vaj2g5cXS5WwQVWqhZRnBSGD6Ijv1FD6t/H8Ub/xWu9bLX1cHVZChhkKTQelHA7B9bCaj/c0Tp+q2Hcgd1/8+9X3/roCvT9v8GM3BM8g/Darc6+7iTt0XdI3dmQuLH7iITwUQ2YzNpew==";
 ///environment: 'local' | 'develop' | 'qa' | 'production' | ...
 export function getConfig(environment: string) {
     if (!config) {

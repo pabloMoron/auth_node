@@ -1,15 +1,22 @@
 'use strict';
 
 import * as express from 'express';
-import { ExtractQueryHelpers } from 'mongoose';
 
-let userRouter = express.Router();
+const userRouter = express.Router();
+function prevMiddleware(req: express.Request,res: express.Response, next: express.NextFunction) {
+    console.log("Prev Middleware");
+    next();
+}
+function postMiddleware(req: express.Request,res: express.Response, next: express.NextFunction) {
+    console.log("Post Middleware");
+    next();
+}
 
 export function initUserRouter(app: express.Express){
     //como la ruta es igual, express ofrece la posibilidad de usar el metodo
     //route() y appendear las funciones que van a atenerder cada uno de los verbos
     //para esa ruta... muy util cuando se implementan todos los metodos de una ruta
-    userRouter.route('/').get(listUsers).post(signUp);
+    userRouter.route('/').get(prevMiddleware,listUsers,postMiddleware).post(signUp);
 
     userRouter.post('/password', changePassword);
     userRouter.post('/login', login);
@@ -23,8 +30,10 @@ export function initUserRouter(app: express.Express){
     app.use('/users', userRouter);
 }
 
-function listUsers(req: express.Request,res: express.Response) {
+function listUsers(req: express.Request,res: express.Response, next: express.NextFunction) {
     res.send('lista de users');
+    console.log("SEWW");
+    next();
 }
 
 function signUp (req: express.Request,res: express.Response) {
