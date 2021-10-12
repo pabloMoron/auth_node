@@ -9,6 +9,11 @@ POST http://localhost:3000/users
 ###
 POST http://localhost:3000/users/password
 
+{
+    "basura1": "123",
+    "basura2": 123,
+    "basura3": true
+}
 ###
 GET http://localhost:3000/users/grant
 

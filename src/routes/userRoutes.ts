@@ -32,7 +32,6 @@ export function initUserRouter(app: express.Express){
 
 function listUsers(req: express.Request,res: express.Response, next: express.NextFunction) {
     res.send('lista de users');
-    console.log("SEWW");
     next();
 }
 
