@@ -1,7 +1,7 @@
-import * as dotenv from 'dotenv';
-let config: Config;
+import * as dotenv from 'dotenv'
+let config: Config
 ///environment: 'local' | 'develop' | 'qa' | 'production' | ...
-export function getConfig(environment: string) {
+export function getConfig(environment: string): Config {
     if (!config) {
         dotenv.config({ path: `${environment}.env` })
         config = {
@@ -12,12 +12,12 @@ export function getConfig(environment: string) {
             passwordSalt: process.env.PASSWORD_SALT || 'BYe4Zrdt6KEfBPirPguS9l8SbBbeLBnvrgYdJDe8',
             port: process.env.PORT || '3000',
             rabbitUrl: process.env.RABBIT_URL || 'amqp://localhost',
-        };
+        }
     }
-    return config;
+    return config
 }
 
-export interface Config{
+export interface Config {
     port: string,
     logLevel: string, //'debug' | 'verbose' | 'info' | 'warn' | 'error'
     mongoDB: string,
