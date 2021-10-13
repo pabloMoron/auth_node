@@ -1,5 +1,10 @@
 GET http://localhost:3000/
-
+###
+GET http://localhost:3000/nerdge.gif
+###
+GET http://localhost:3000/nerdge_md.gif
+###
+GET http://localhost:3000/nerdge_sm.gif
 ###
 GET http://localhost:3000/users
 

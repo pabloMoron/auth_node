@@ -6,7 +6,7 @@ import { Config } from './server/environment'
 import mongoose from 'mongoose'
 
 console.log("Obteniendo variables de entorno...")
-const conf: Config = environment.getConfig("dev")
+const conf: Config = environment.getConfig("develop")
 const app = express.initialize(conf)
 console.log("Variables de entorno obtenidas")
 

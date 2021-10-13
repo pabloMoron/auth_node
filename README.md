@@ -1,11 +1,23 @@
-# Acerca de mi
-
+# Acerca de mi 
 [Perfil](https://github.com/pabloMoron/profile)
 
-## Acerca de este proyecto
-Este es un proyecto personal, que forma parte de mi [portfolio](https://github.com/pabloMoron/profile#portfolio-personal)
+<!-- ![](./public/nerdge_md.gif) -->
 
-### stack
+## Acerca de este proyecto
+Este es un proyecto personal, que forma parte de mi [portfolio](https://github.com/pabloMoron/profile#portfolio-personal).
+El proyecto está 
+A medida que vaya avanzando con el código iré completando el README.
+### Ide
+- [VSCode](https://code.visualstudio.com/)
+### Extensiones para VSCode
+- [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client): Utilizo esta extensión para probar los endpoints de mi API desde un archivo .rest.
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint): Para intgrar ESLint en VSCode.
+
+- [TypeScript Debugger](https://marketplace.visualstudio.com/items?itemName=kakumei.ts-debug): Para poder debuggear código typescript desde la transpilacion.
+La opcion la opción "sourcemap" debe estar con el valor true en el archivo tsconfig.json.
+
+### Stack
 - Entorno windows
 - [Node.js®](https://nodejs.org/es/)
 - [Express](https://expressjs.com/)
@@ -14,27 +26,32 @@ Este es un proyecto personal, que forma parte de mi [portfolio](https://github.c
 
 Dependencias:
 
-dotenv: para tomar variables de entorno desde un archivo .env
+- [dotenv](https://www.npmjs.com/package/dotenv): Para tomar variables de entorno desde un archivo .env.
 
-express: framework que facilita el routing, uso de middlewares, engines, etc para aplicaciones web.
+- [Express](https://expressjs.com/): framework que facilita el routing, uso de middlewares, engines, etc para aplicaciones web.
 
-nodemon: para reiniciar la aplicacion cuando se detecte un cambio en los archivos.
+- [nodemon](https://www.npmjs.com/package/nodemon): para reiniciar la aplicacion cuando se detecte un cambio en los archivos.
 
-[Deprecado]bodyParser: middleware que permite manipular el body de las requests
+- [Deprecado] ~~bodyParser~~: middleware que permite manipular el body de las requests.
 
-[Reemplazado por] el propio middleware incluido en el modulo express
-compression: middleware para comprimir las respuestas
+- [Reemplazado por] el propio [middleware](https://expressjs.com/en/resources/middleware/body-parser.html) incluido en el modulo express.
 
-cors: libreria para administrar el intercambio de recursos de origenes cruzados (CORS)
+- [compression](http://expressjs.com/en/resources/middleware/compression.html): middleware para comprimir las respuestas.
 
-helmet: da seguridad para prevenir hacks, previene inyecciones de javascript
+- [cors](http://expressjs.com/en/resources/middleware/cors.html): middleware de Express para administrar el intercambio de recursos de origenes cruzados (CORS).
 
-morgan: imprime por consola cada request (conviene usar solo en modo debug)
+- [helmet](http://expressjs.com/en/advanced/best-practice-security.html#use-helmet): da seguridad para prevenir hacks, previene inyecciones de javascript.
 
-passport: middleware que nos ayuda a validar tokens
+- [morgan](https://www.npmjs.com/package/morgan): imprime por consola cada request (usado solo en modo debug).
 
-passport-jwt: estrategia especifica para passport (hay muchas, cerca de 500)
+- [passport](https://www.passportjs.org/): middleware que nos ayuda a validar tokens.
 
-mongoose: modelador de objetos mongodb para node
+- [passport-jwt](https://www.passportjs.org/packages/passport-jwt/): estrategia especifica para passport (hay muchas, cerca de 500).
 
-eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin: linter para typescript
+- [mongoose](https://mongoosejs.com/): modelador de objetos de mongodb para node.
+
+### Linter y plugin respectivo para typescript. TSLint se encuentra deprecado en favor a ESLint. [Mas info](https://blog.palantir.com/tslint-in-2019-1a144c2317a9)
+- eslint
+- @typescript-eslint/parser 
+- @typescript-eslint/eslint-plugin
+
