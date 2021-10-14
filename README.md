@@ -41,7 +41,7 @@ Dependencias:
 
 - [helmet](http://expressjs.com/en/advanced/best-practice-security.html#use-helmet): da seguridad para prevenir hacks, previene inyecciones de javascript.
 
-- [morgan](https://www.npmjs.com/package/morgan): imprime por consola cada request (usado solo en modo debug).
+- [morgan](https://www.npmjs.com/package/morgan): imprime por consola cada request (usado solo en modo desarrollo).
 
 - [passport](https://www.passportjs.org/): middleware que nos ayuda a validar tokens.
 
