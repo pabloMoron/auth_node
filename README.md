@@ -5,7 +5,6 @@
 
 ## Acerca de este proyecto
 Este es un proyecto personal, que forma parte de mi [portfolio](https://github.com/pabloMoron/profile#portfolio-personal).
-El proyecto está 
 A medida que vaya avanzando con el código iré completando el README.
 ### Ide
 - [VSCode](https://code.visualstudio.com/)
