@@ -49,6 +49,9 @@ Dependencias:
 
 - [mongoose](https://mongoosejs.com/): modelador de objetos de mongodb para node.
 
+- [bcrypt](): para hacer un hash seguro de las passwords
+
+Nota: [¿Por qué usar bcrypt y no el modulo crypto de node?](https://codahale.com/how-to-safely-store-a-password/)
 ### Linter y plugin respectivo para typescript. TSLint se encuentra deprecado en favor a ESLint. [Mas info](https://blog.palantir.com/tslint-in-2019-1a144c2317a9)
 - eslint
 - @typescript-eslint/parser 
