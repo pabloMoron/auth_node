@@ -11,7 +11,7 @@ const app = express.initialize(conf)
 console.log("Variables de entorno obtenidas")
 
 console.log("Conectandose a la base de datos...")
-mongoose.createConnection(conf.mongoDB).asPromise()
+mongoose.connect(conf.mongoDB)
     .then(() => {
         console.log("MongoDB conectado")
         console.log("Iniciando servidor...")

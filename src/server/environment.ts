@@ -8,7 +8,7 @@ export function getConfig(environment: string): Config {
             host: process.env.HOST || 'localhost',
             jwtSecret: process.env.JWT_SECRET || 'eKlSZc+piPhPOC5GXhmfQJH56ySX6TOK4HSGIKBg9DpoQ/PdKpQ',
             logLevel: process.env.LOG_LEVEL || 'debug',
-            mongoDB: process.env.MONGO_URL || 'mongodb://localhost/authentication',
+            mongoDB: process.env.MONGO_URL || 'mongodb://localhost:27017/authentication',
             passwordSalt: process.env.PASSWORD_SALT || 'BYe4Zrdt6KEfBPirPguS9l8SbBbeLBnvrgYdJDe8',
             port: process.env.PORT || '3000',
             rabbitUrl: process.env.RABBIT_URL || 'amqp://localhost',

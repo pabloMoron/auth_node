@@ -1,6 +1,7 @@
 'use strict'
 
 import * as express from 'express'
+import {  User, IUser } from '../Users/user'
 
 const userRouter = express.Router()
 function prevMiddleware(req: express.Request, res: express.Response, next: express.NextFunction): void {
@@ -16,7 +17,9 @@ export function initUserRouter(app: express.Express): void {
     //como la ruta es igual, express ofrece la posibilidad de usar el metodo
     //route() y appendear las funciones que van a atenerder cada uno de los verbos
     //para esa ruta... muy util cuando se implementan todos los metodos de una ruta
-    userRouter.route('/').get(prevMiddleware, listUsers, postMiddleware).post(signUp)
+    userRouter.route('/')
+    .get(prevMiddleware, listUsers, postMiddleware)
+    .post(signUp)
 
     userRouter.post('/password', changePassword)
     userRouter.post('/login', login)
@@ -37,7 +40,20 @@ function listUsers(req: express.Request, res: express.Response, next: express.Ne
 }
 
 function signUp(req: express.Request, res: express.Response): void {
-    res.send('alta de un nuevo usuario')
+    console.log('alta de nuevo usuario')
+    const user: IUser = new User()
+
+    user.name = req.body.name
+    user.user = req.body.user
+    //user.setPassword(req.body.password)
+    user.password = "12345"
+    user.save(error =>{
+        if(error) { 
+            res.json({status: 500, error: error})
+            return
+        }
+        res.json({status: 201, user: user})
+    })
 }
 
 function changePassword(req: express.Request, res: express.Response): void {

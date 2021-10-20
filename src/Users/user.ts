@@ -1,20 +1,25 @@
 "use strict"
 
-import {hashSync} from 'bcrypt'
+import {hashSync, genSaltSync} from 'bcrypt'
 import { Document, model, Schema } from 'mongoose'
 import * as env from '../server/environment'
 
 const conf = env.getConfig('develop')
 
 export interface IUser extends Document {
-    name: string,
-    user: string,
-    password: string,
-    permissions: string[],
-    updated: Date,
-    created: Date,
-    enabled: boolean,
-    
+    name: string
+    user: string
+    password: string
+    permissions: string[]
+    updated: Date
+    created: Date
+    enabled: boolean
+    setPassword: FunctionConstructor
+    authenticate: FunctionConstructor
+    hasPermission: FunctionConstructor
+    revoke: FunctionConstructor
+    grant: FunctionConstructor
+    hashPassword: FunctionConstructor
 }
 
 //  Declaramos el schema
@@ -69,14 +74,18 @@ const UserSchema = new Schema({
     }
 }, {collection: "Users"})
 
+//  Tambien se puede validar una propiedad de esta manera
+//  Primero se valida la longitud definida en la propiedad del schema y luego el path
 //  Validacion de longitud de password
 UserSchema.path("password").validate((password: string)=>{
-    return password && password.length > 4
-}, "Password should contain at least 4 characters")
+    return password && password.length > 6
+}, "Password should contain at least 6 characters")
 
 //  Aplica una funcion hash a un password
 UserSchema.methods.hashPassword = (password: string): string => {
-    return hashSync(password, conf.passwordSalt)
+    const salt = genSaltSync(15)
+    console.log(`salt: ${salt}`, `saltConfig: ${conf.passwordSalt}`)
+    return hashSync(password, salt)
 }
 
 //  Asigna una lista de permisos a un usuario
