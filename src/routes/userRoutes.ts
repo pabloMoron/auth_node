@@ -1,7 +1,7 @@
 'use strict'
 
 import * as express from 'express'
-import {  User, IUser } from '../Users/user'
+import * as user from '../Users'
 
 const userRouter = express.Router()
 function prevMiddleware(req: express.Request, res: express.Response, next: express.NextFunction): void {
@@ -41,23 +41,31 @@ function listUsers(req: express.Request, res: express.Response, next: express.Ne
 
 function signUp(req: express.Request, res: express.Response): void {
     console.log('alta de nuevo usuario')
-    const user: IUser = new User()
+    const usr: user.IUser = new user.User()
 
-    user.name = req.body.name
-    user.user = req.body.user
-    //user.setPassword(req.body.password)
-    user.password = "12345"
-    user.save(error =>{
+    usr.name = req.body.name
+    usr.user = req.body.user
+    usr.setPassword(req.body.password)
+    //usr.password = "12345"
+    usr.save(error =>{
         if(error) { 
             res.json({status: 500, error: error})
             return
         }
-        res.json({status: 201, user: user})
+        res.json({status: 201, user: usr})
     })
 }
 
 function changePassword(req: express.Request, res: express.Response): void {
-    res.send('cambio de contraseña')
+   try {
+       const userId:string = req.body.userId
+       const actualPassword:string = req.body.actualPassword
+       const newPassword:string = req.body.newPassword
+       user.changePassword(userId, actualPassword, newPassword)
+       res.json({status: 200, user: user})
+   } catch (error) {
+       res.json({status: 200, error: error})
+   }
 }
 
 function login(req: express.Request, res: express.Response): void {

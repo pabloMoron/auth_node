@@ -1,6 +1,6 @@
 "use strict"
 
-import {hashSync, genSaltSync} from 'bcrypt'
+import { genSaltSync, hashSync } from 'bcrypt'
 import { Document, model, Schema } from 'mongoose'
 import * as env from '../server/environment'
 
@@ -78,8 +78,8 @@ const UserSchema = new Schema({
 //  Primero se valida la longitud definida en la propiedad del schema y luego el path
 //  Validacion de longitud de password
 UserSchema.path("password").validate((password: string)=>{
-    return password && password.length > 6
-}, "Password should contain at least 6 characters")
+    return password && password.length > 4
+}, "Password should contain at least 4 characters")
 
 //  Aplica una funcion hash a un password
 UserSchema.methods.hashPassword = (password: string): string => {
